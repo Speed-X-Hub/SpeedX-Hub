@@ -1,5 +1,5 @@
 loadstring(game:HttpGet("https://pastefy.app/RcQmmWkq/raw"))()
 
-task.wait(3)
+task.wait()
 
 loadstring(game:HttpGet("https://raw.githubusercontent.com/Speed-X-Hub/Spawner-GaG/refs/heads/main/Pet%26Egg%26Seed"))()
